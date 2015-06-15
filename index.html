@@ -15,9 +15,9 @@
             
             <div class="box" id="n1"></div>
             
-            <div class="box" id="n2" >
+            <div class="box" id="n2" style="height:100%" >
                 <div class="title2">21ST CENTURY STORYTELLING</div>
-                <div class="title2" style="font-size:30px; margin-top:15px;">Professional development workshops in crossmedia performance</div>
+                <div style="font-family:'helvetica';text-align:center;font-size:20px;margin-top:15px;margin-left: 5%;margin-right: 5%;width:90%">Professional development workshops in crossmedia performance</div>
             </div>
             
             
@@ -93,7 +93,7 @@
             
             
         <div class="box" id="n12"  style="background-color:transparent">
-            <div class="column" id="paragraph3" style="float:right">
+            <div class="column" id="paragraph5" style="float:right">
             <div class="halfPageTitle marginSetting" id="paragraph2"  style="font-size:20px;">ADVANCED COURSE</div>
             <div class="text marginSetting" style="margin-top:20px;">In this advanced workshop, more experienced practitioners and/or students from the Beginner course will deepen their understanding of various interactive media tools.</div>
             </div>
@@ -183,7 +183,7 @@ www.thebuildersassociation.org<br><br>
         
         
         
-        <div class="title">THE BUILDERS ASSOCIATION</div>
+        <div class="title"></div>
         
         
         
@@ -192,10 +192,17 @@ www.thebuildersassociation.org<br><br>
             var childNum;
             var prevScroll=0;
             var position = new Array();
+            var snapNum = $(window).height()*0.03;
             
             $(document).ready(function()
             {
-                var i;
+               init();
+                
+            });
+            
+            function init()
+            {
+                 var i;
                 childNum = $(".box").length;
                 var docHeight = $(".box#n1").height();
               //  console.log(childNum);
@@ -213,38 +220,59 @@ www.thebuildersassociation.org<br><br>
                 }
                 $("#scrollPurpose").css("height",docHeight+"px");
               //  $("#forScroll").css({"width":"100%","height":docLength+"px","background-color":"magenta"});
-                
+            }
+            
+            
+            $(window).resize(function()
+            {
+                snapNum = $(window).height()*0.03;
+                init();
+                if($(window).width() >=770)
+                {
+                    var i;
+                    for(i=1;i<=currentNum; i++)
+                         $(".box#n"+i).css({"position":"fixed","top":"0px"});
+                }
+                else
+                {
+                     var i;
+                    for(i=1;i<=currentNum; i++)
+                         $(".box#n"+i).css({"position":"absolute","top":position[i]+"px"});
+                }
+                    
             });
             
             
             var thisHappens = _.throttle(function(){
-                
-                var y = $(".box#n"+(currentNum+1)).position().top;
-                var containerHeight = $(".wrapper").height();
-                console.log(currentNum+" "+y);
-                
-                if(currentNum >= childNum)
-                    currentNum--;
-                
-                if(y<=30)
-                {
-                    currentNum++;
-                    $(".box#n"+currentNum).css({"position":"fixed","top":"0px"});
-                }
-                else if(y>=containerHeight+30)
-                {
-                    $(".box#n"+currentNum).css({"position":"absolute","top":position[currentNum]+"px"});
-                    currentNum--;
-                }
+                if($(window).width()>=770){
+                        var y = $(".box#n"+(currentNum+1)).position().top;
+                        var containerHeight = $(".wrapper").height();
+                        //console.log(snapNum);
+                        //console.log(currentNum+" "+y);
+
+                        if(currentNum >= childNum)
+                            currentNum--;
+
+                        if(y<=snapNum)
+                        {
+                            currentNum++;
+                            $(".box#n"+currentNum).css({"position":"fixed","top":"0px"});
+                        }
+                        else if(y>=containerHeight+snapNum)
+                        {
+                            $(".box#n"+currentNum).css({"position":"absolute","top":position[currentNum]+"px"});
+                            currentNum--;
+                        }
                 
                 var n=$(this).scrollTop();
-                if(n>50)
-                {
-                    $(".title").css({"font-size":"15px","top":"25px"});
-                }
-                else
-                {
-                    $(".title").css({"font-size":"50px","top":"43%"});
+                    if(n>50)
+                    {
+                        $(".title").css({"height":"15px","top":"25px"});
+                    }
+                    else
+                    {
+                        $(".title").css({"height":"50px","top":"43%"});
+                    }
                 }
                 
             },10);
