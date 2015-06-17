@@ -11,7 +11,7 @@
     
     <body>
        
-        <div class="wrapper">
+      
             
             <div class="box" id="n1" style="height:100%;background-image:url('continuous-krannert_03.jpg'); top:0px"><div class="title"></div></div>
             
@@ -62,7 +62,7 @@
             
             <div class="box" id="n8">
                 <div class="column" style="float:left">
-                    <div class="halfPageTitle marginSetting" >SAMPLE WORKWHOPS</div>
+                    <div class="halfPageTitle marginSetting" >SAMPLE WORKSHOPS</div>
                 </div>
                 <div class="column" style="float:left">
                     <div class="halfPageTitle marginSetting" id="paragraph2" style="font-size:20px;">BEGINNER COURSE</div>
@@ -185,7 +185,7 @@ www.thebuildersassociation.org<br><br>
             <div class="box" id="n23" style="background-color:transparent; height:10%"></div>
             
             <div id="scrollPurpose" style="width:100%; top:0px; position:absolute"></div>
-        </div>
+      
         
         
         
@@ -251,9 +251,9 @@ www.thebuildersassociation.org<br><br>
             
             var thisHappens = _.throttle(function(){
                 if($(window).width()>=770){
-                        var y = $(".box#n"+(currentNum+1)).position().top;
-                        var containerHeight = $(".wrapper").height();
-                        //console.log(snapNum);
+                        var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
+                        var containerHeight = $(window).height();
+                        console.log(y);
                         //console.log(currentNum+" "+y);
 
                         if(currentNum >= childNum)
@@ -277,7 +277,7 @@ www.thebuildersassociation.org<br><br>
             
             var currentNum =1;
   
-            $(".wrapper").scroll(thisHappens);
+            $(window).scroll(thisHappens);
             
                 
         </script>
