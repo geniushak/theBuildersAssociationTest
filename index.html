@@ -250,7 +250,7 @@ www.thebuildersassociation.org<br><br>
             
             
             var thisHappens = _.throttle(function(){
-                if($(window).width()>=770){
+               // if($(window).width()>=770){
                         var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
                         var containerHeight = $(window).height();
                         console.log(y);
@@ -270,7 +270,7 @@ www.thebuildersassociation.org<br><br>
                             currentNum--;
                         }
                 
-                }
+             //   }
                 
             },10);
             
