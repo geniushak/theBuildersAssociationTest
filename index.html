@@ -199,6 +199,7 @@ www.thebuildersassociation.org<br><br>
             var prevScroll=0;
             var position = new Array();
             var snapNum = $(window).height()*0.03;
+            var throttleTime =10;
             
             $(document).ready(function()
             {
@@ -226,6 +227,9 @@ www.thebuildersassociation.org<br><br>
                 }
                 $("#scrollPurpose").css("height",docHeight+"px");
               //  $("#forScroll").css({"width":"100%","height":docLength+"px","background-color":"magenta"});
+                if($(window).width() <770)
+                    throttleTime = 0;
+               
             }
             
             
@@ -238,12 +242,14 @@ www.thebuildersassociation.org<br><br>
                     var i;
                     for(i=1;i<=currentNum; i++)
                          $(".box#n"+i).css({"position":"fixed","top":"0px"});
+                    throttleTime = 10;
                 }
                 else
                 {
                      var i;
                     for(i=1;i<=currentNum; i++)
                          $(".box#n"+i).css({"position":"absolute","top":position[i]+"px"});
+                    throttleTime = 0;
                 }
                     
             });
@@ -272,7 +278,7 @@ www.thebuildersassociation.org<br><br>
                 
              //   }
                 
-            },10);
+            },throttleTime);
             
             var currentNum =1;
   
