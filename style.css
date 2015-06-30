@@ -8,10 +8,10 @@ body {width: 100%; height: 100%; padding: 0px; margin: 0px;overflow: scroll}
 
 .title {height:50px; width:90%;margin-left: 5%;margin-right: 5%; top:45%;background-image: url('logo.png');background-size: contain; background-position: center; background-repeat: no-repeat; position: absolute}
 
-.title2 {font-family: "helvetica"; font-size: 50px; width:90%; margin-top: 25%; text-align: center;margin-left: 5%;margin-right: 5%}
-.text {font-family: "helvetica"; font-size: 18px; text-align: left;margin-top:35%;}
+.title2 {font-family: "helvetica"; font-size: 5.8vw; width:90%; margin-top: 25%; text-align: center;margin-left: 5%;margin-right: 5%}
+.text {font-family: "helvetica"; font-size: 2vw; text-align: left;margin-top:35%;}
 
-.halfPageTitle {font-family: "helvetica"; font-size: 50px; margin-top:35%;  text-align:left}
+.halfPageTitle {font-family: "helvetica"; font-size: 5.8vw; margin-top:35%;  text-align:left}
 
 .marginSetting {margin-left:10%; margin-right: 5%; width:85%}
 
@@ -22,18 +22,16 @@ body {width: 100%; height: 100%; padding: 0px; margin: 0px;overflow: scroll}
 #paragraph3 {height:80%; margin-top:20%;}
 .box #n1 {position: fixed;}
 
-@media screen and (max-width:850px) {
-    .text {font-size: 18px}
-}
+
 
 @media only screen and (max-width: 770px) {
     .title {height: 10px; top:40%;}
-    .title2 {font-size:30px; margin-top: 40%}
+    .title2 {font-size:10vw; margin-top: 40%}
     .box { padding-bottom: 40px;}
     .column {height:auto;width: 100%;}
-    .halfPageTitle {margin-top:20%; font-size:20px}
+    .halfPageTitle {margin-top:20%; font-size:5vw}
     .marginSetting {margin-left:5%; margin-right:5%; width:90%}
-    .text {margin-top:20px}
+    .text {margin-top:20px;font-size:4vw}
     #paragraph {margin-top:25%;height:75%}
     #paragraph2 {margin-top:5%;}
     #paragraph3 {margin-top:25%;height:75%}
@@ -42,9 +40,7 @@ body {width: 100%; height: 100%; padding: 0px; margin: 0px;overflow: scroll}
 }
 
 
-@media only screen and (max-width: 600px) {
-    .text {font-size: 15px}
-}
+
 
 
 
