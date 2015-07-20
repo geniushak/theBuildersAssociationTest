@@ -4,41 +4,232 @@ video {height:100%; width: auto;}
 
 
 
-.box {width: 100%; height: 100%; background-color:transparent; position: absolute}
+.box {
+    width: 100%; 
+    height: 100%; 
+    background-color:transparent; 
+    position: absolute;
+    overflow: hidden;
+}
+.veil {
+    background-color: black; 
+    opacity: 0; 
+    width:100%; 
+    height: 100%; 
+    position: absolute; 
+    top:0px; left:0px;
+}
 
+.title2 {
+    font-family: "dia"; 
+    font-weight:900; 
+    font-size: 7.4vw; 
+    width:70%; 
+    top:38%; 
+    text-align: center; 
+    margin-left: 15%; 
+    margin-right: 15%;
+    position:absolute;
+    line-height: 7vw;
+}
+.text {
+    font-family: "dia"; 
+    font-weight:700; 
+    font-size: 2.8vw; 
+    text-align: left; 
+    width:90%; 
+    margin-left:5%;
+    margin-top: 5%;
+}
+.quote {
+    font-weight:700; 
+    font-size:5.35vw; 
+    line-height:5.4vw; 
+    width:80%; 
+    margin-left:10%;
+}
+.halfPageTitle {
+    font-family: "dia"; 
+    font-weight:900; 
+    font-size: 4vw; 
+    margin-top:35%;  
+    text-align:center; 
+    line-height: 3.8vw;
+}
 
-.title2 {font-family: "Dia Test"; font-weight:900; font-size: 7.5vw; width:60%; top:38%; text-align: center; margin-left: 20%; margin-right: 20%;position:absolute;line-height: 7.7vw}
-.text {font-family: "dia test"; font-weight:700; font-size: 2.8vw; text-align: left; width:90%; margin-left:5%;margin-top: 5%}
+.column {
+    width:50%; 
+    height:100%; 
+    position: relative
+}
 
-.halfPageTitle {font-family: "dia test"; font-weight:900; font-size: 5.3vw; margin-top:26%;  text-align:center; line-height: 5.1vw}
+.outline {
+    position: absolute; 
+    width:86%; 
+    height:78%; 
+    background-color: transparent;
+    outline: 1.6vw solid white;
+    top:12%; left:7%
+}
+.circleOutline {
+    position: absolute;
+    width:36vw; 
+    height:36vw;
+    background-color: transparent;
+    border: 1.6vw solid white;
+    top:18%;
+    left:50%;
+    margin-left: -20vw;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -o-border-radius:50%;
+    -ms-border-radius:50%;
+}
 
+.box #n1 {
+    position: fixed;
+}
 
-.column {width:50%; height:100%; position: relative}
-
-.outline {position: absolute; width:86%; height:78%; background-color: transparent; outline: 1.6vw solid white; top:12%; left:7%}
-.circleOutline {position: absolute; width:36vw; height:36vw; background-color: transparent; border: 1.6vw solid white; top:18%; left:50%; margin-left: -20vw; -webkit-border-radius:50%}
-
-.box #n1 {position: fixed;}
-
-.readMoreTextBox{position:fixed; width:200px; display:none;}
-#readMoreText{font-family: "dia test"; font-weight:900; font-size: 35px; text-align: center; -webkit-transition:all 0.5s}
+.readMoreTextBox{
+    position:fixed; 
+    width:200px;
+    display:none;
+}
+#readMoreText{
+    font-family: "dia";
+    font-weight:900;
+    font-size: 30px;
+    text-align: center;
+}
 
 .s1{color:rgb(0,0,0)}
-.s2{color:rgb(255,253,89)}
-.s3{color:rgb(255,61,33)}
-.s4{color:rgb(0,254,200)}
-.s5{color:rgb(255,255,255)}
+/*
+.s2{color:rgb(255,255,0)}
+.s3{color:rgb(255,63,0)}
+.s4{color:rgb(0,255,195)}
+*/
+.s2{color:rgb(255,255,255)}
 
 
-.readMoreWrapper {position:fixed; bottom:25px; right:25px; width: 50px; height:50px;}
-.readMore {position:fixed; bottom:25px; right:25px; background-color: white; width:50px; height:50px; -webkit-border-radius:25px;}
-.readMoreWrapper:hover {cursor: pointer}
+.readMoreWrapper {
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width: 50px;
+    height:50px;
+}
+.readMore {
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background-color: white;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -o-border-radius:50%;
+    -ms-border-radius:50%;
+}
+.readMoreWrapper:hover {
+    cursor: pointer
+        
+}
+
+.tldrBigWrapper{
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    overflow: scroll;
+    display: none;
+    background-color: white;
+}
+.tldrWrapper {
+    height: 85%;
+    background-color: white;
+    margin-top: 4.5%;
+    margin-bottom: 4.5%;
+    padding: 1.5%
+}
+
+.tldrColumn{
+    width:46%;
+    height:96%;
+    padding:2%;
+    float:left;
+}
+
+.cropMarks{
+    border-color: black;
+    position: absolute;
+   // background-color: black;
+}
 
 
-.tldrWrapper {position:fixed; width: 100%; height:100%; overflow: scroll;background-color: white;display: none}
-.tldrBox {width:100%; height:100%; background-position: center; background-size: contain; background-repeat: no-repeat}
+.tldrBox {
+    width:100%;
+    font-family: "dia";
+    font-size: 1.5vh;
+    line-height: 1.7vh;
+    padding-bottom: 20px;
+}
 
-.pictogram {text-align: center; font-family: "modern pictograms"; font-size: 40px;}
+.tldrTitle{
+    font-size:1.8vh;
+    line-height: 2vh;
+    font-weight: 800;
+    padding-bottom: 10px;
+}
+
+.tldrEmpty{
+    
+}
+
+
+.tldrFoot1 {
+    position:fixed;
+    font-family: "dia";
+    left:21%; top: 312px;
+    font-weight:700;
+    font-size: 20px;
+    text-align: left;
+    color : rgb(255,63,0);
+
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+
+    
+    transform-origin: 0% 0%;
+    -webkit-transform-origin:0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+}
+
+.tldrFoot2 {
+    position:fixed;
+    right:21%; bottom:20px;
+    font-family: "dia";
+    font-weight:700;
+    font-size: 20px;
+    text-align: right;
+    color : rgb(0,255,195);
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform-origin: 100% 100%;
+    -webkit-transform-origin:100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+}
+    
 
 #close:hover{cursor: pointer}
 #print:hover{cursor: pointer}
@@ -57,6 +248,32 @@ video {height:100%; width: auto;}
     #paragraph3 {margin-top:25%;height:75%}
     #paragraph4 {height:100%}
     #paragraph5 {margin-top:25%;height:75%}
+}
+
+@font-face {
+    font-family: "dia";
+    src: url('Fonts_for_Builders/DiaWeb/dia-black-v10-woff-eot/diaBlack.eot'),
+    url('Fonts_for_Builders/DiaWeb/dia-black-v10-woff-eot/diaBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "dia";
+    src: url('Fonts_for_Builders/DiaWeb/dia-bold-v10-woff-eot/diaBold.eot'),
+    url('Fonts_for_Builders/DiaWeb/dia-bold-v10-woff-eot/diaBold.woff') format('woff');
+    
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "dia";
+    src: url('Fonts_for_Builders/DiaWeb/dia-regular-v10-woff-eot/diaRegular.woff'),
+    url('Fonts_for_Builders/DiaWeb/dia-regular-v10-woff-eot/diaRegular.eot') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
