@@ -1,3 +1,5 @@
+@media screen{
+    
 html {width: 100%; height: 100%; padding: 0px; margin: 0px;}
 body {width: 100%; height: 100%; padding: 0px; margin: 0px;overflow: scroll}
 video {height:100%; width: auto;}
@@ -146,16 +148,18 @@ video {height:100%; width: auto;}
     background-color: white;
 }
 .tldrWrapper {
-    height: 85%;
+    width: 94%;
+    height: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top:2%;
+    margin-bottom:2%;
     background-color: white;
-    margin-top: 4.5%;
-    margin-bottom: 4.5%;
-    padding: 1.5%
 }
 
 .tldrColumn{
     width:46%;
-    height:96%;
+    height:94%;
     padding:2%;
     float:left;
 }
@@ -170,84 +174,55 @@ video {height:100%; width: auto;}
 .tldrBox {
     width:100%;
     font-family: "dia";
-    font-size: 1.5vh;
-    line-height: 1.7vh;
-    padding-bottom: 20px;
+    font-size: 1.2vw;
+    line-height: 1.3vw;
 }
 
 .tldrTitle{
-    font-size:1.8vh;
-    line-height: 2vh;
+    font-size:1.2vw;
+    line-height: 1.3vw;
     font-weight: 800;
-    padding-bottom: 10px;
 }
 
 .tldrEmpty{
     
 }
 
-
-.tldrFoot1 {
-    position:fixed;
-    font-family: "dia";
-    left:21%; top: 312px;
-    font-weight:700;
-    font-size: 20px;
-    text-align: left;
-    color : rgb(255,63,0);
-
-    transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-
-    
-    transform-origin: 0% 0%;
-    -webkit-transform-origin:0% 0%;
-    -ms-transform-origin: 0% 0%;
-    -o-transform-origin: 0% 0%;
-    -moz-transform-origin: 0% 0%;
-}
-
-.tldrFoot2 {
-    position:fixed;
-    right:21%; bottom:20px;
-    font-family: "dia";
-    font-weight:700;
-    font-size: 20px;
-    text-align: right;
-    color : rgb(0,255,195);
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    transform-origin: 100% 100%;
-    -webkit-transform-origin:100% 100%;
-    -ms-transform-origin: 100% 100%;
-    -o-transform-origin: 100% 100%;
-    -moz-transform-origin: 100% 100%;
-}
     
 
 #close:hover{cursor: pointer}
 #print:hover{cursor: pointer}
-
+    
+    
+}
 
 @media only screen and (max-width: 770px) {
+    img, video{display: none}
     .title {height: 10px; top:40%;}
-    .title2 {font-size:10vw; margin-top: 40%}
-    .box { padding-bottom: 40px;}
-    .column {height:auto;width: 100%;}
-    .halfPageTitle {margin-top:20%; font-size:5vw}
+    .title2 {font-size:10vw; line-height: 10.5vw; top:30%; width: 90%; margin-left: 5%}
+    .circleOutline{width: 90%; left: 5%; margin: 0; border-radius:0;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    -o-border-radius:0;
+    -ms-border-radius:0; border: 0px;}
+    .halfPageTitle{font-size:10vw; line-height: 10.5vw}
+    .box {height: 100%; padding-bottom: 40px; background-color: black; position: relative;}
+    #n1,#n3,#n5,#n7,#n11,#n13,#n17,#n19,#n23 {display: none}
+    .column {height:auto;width: 100%; background-color: black !important}
     .marginSetting {margin-left:5%; margin-right:5%; width:90%}
-    .text {margin-top:20px;font-size:4vw}
+    .text {margin-top:20px;font-size:5.5vw}
+    .text#y{color:rgb(255,255,0);}
+    .text#r{color:rgb(255,63,0);}
+    .text#g{color:rgb(0,255,195);}
+    .readMoreWrapper{display: none}
+    .quote{font-size:5.5vw; line-height: 6vw} 
+    .outLine{width: 100%; margin: 0px; outline: 0;} 
     #paragraph {margin-top:25%;height:75%}
     #paragraph2 {margin-top:5%;}
     #paragraph3 {margin-top:25%;height:75%}
     #paragraph4 {height:100%}
     #paragraph5 {margin-top:25%;height:75%}
+    .box#n26{display: none}
 }
 
 @font-face {
@@ -274,6 +249,26 @@ video {height:100%; width: auto;}
     url('Fonts_for_Builders/DiaWeb/dia-regular-v10-woff-eot/diaRegular.eot') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+
+@media print{
+
+    * {margin: 0 !important; padding: 0 !important;}
+    @page { size:auto;}
+    html, body{height: 100%;}
+    .body { font-size: 12pt; font-family:"dia"}
+    .box>div {display: none}
+    .tldrColumn{width:46%; height:96%;padding:10pt;float:left;}
+    .cropMarks {display:none}
+    .tldrBigWrapper{height: 100%; width:100%}
+    .tldrWrapper{height: 100%; width:100%; margin-top: 5cm;}
+    .tldrTitle{font-size: 8.5pt; font-family: "dia"; font-weight: 800; margin-bottom: 2mm; float:none}
+    .tldrBox{font-size: 8.5pt; font-family:"dia"; margin-bottom: 2mm; float: none}
+    .tldrEmpty{display: none}
+    video {display: none}
+    img {display: none}
+    #scrollPurpose{display: none}
 }
 
 
