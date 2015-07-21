@@ -206,7 +206,7 @@ video {height:100%; width: auto;}
     -o-border-radius:0;
     -ms-border-radius:0; border: 0px;}
     .halfPageTitle{font-size:10vw; line-height: 10.5vw}
-    .box {height: 100%; padding-bottom: 40px; background-color: black; position: relative;}
+    .box {height: 100%; padding-bottom: 40px; background-color: black; position: relative; top:auto}
     #n1,#n3,#n5,#n7,#n11,#n13,#n17,#n19,#n23 {display: none}
     .column {height:auto;width: 100%; background-color: black !important}
     .marginSetting {margin-left:5%; margin-right:5%; width:90%}

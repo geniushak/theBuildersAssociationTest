@@ -397,24 +397,26 @@ www.thebuildersassociation.org<br>
             {
                 snapNum = $(window).height()*0.03;
                 init();
-    
+                
                 if($(window).width() >=770)
                 {
                     var i;
                     for(i=1;i<=currentNum; i++)
                          $(".box#n"+i).css({"position":"fixed","top":"0px"});
                     throttleTime = 10;
+                    videoSize();
+                    imageSize();
                 }
                 else
                 {
-                     var i;
-                    for(i=1;i<=currentNum; i++)
-                         $(".box#n"+i).css({"position":"absolute","top":position[i]+"px"});
+                    var i;
+                    console.log("!NMVEKSLFJSB!!!!!");
+                    for(i=1;i<=childNum; i++)
+                    $(".box#n"+i).css({"position":"reletive","top":"auto"});
                     throttleTime = 0;
                 }
                 
-                videoSize();
-                imageSize();
+                
                 //tldrSize();
                 //cropMarks();
                     
