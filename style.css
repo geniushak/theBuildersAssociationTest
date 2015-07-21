@@ -199,7 +199,7 @@ video {height:100%; width: auto;}
 @media only screen and (max-width: 770px) {
     img, video{display: none}
     .title {height: 10px; top:40%;}
-    .title2 {font-size:10vw; line-height: 10.5vw; top:30%; width: 90%; margin-left: 5%}
+    .title2 {font-size:10vw; line-height: 10.5vw; top:36%; width: 90%; margin-left: 5%}
     .circleOutline{width: 90%; left: 5%; margin: 0; border-radius:0;
     -webkit-border-radius:0;
     -moz-border-radius:0;
@@ -214,6 +214,7 @@ video {height:100%; width: auto;}
     .text#y{color:rgb(255,255,0);}
     .text#r{color:rgb(255,63,0);}
     .text#g{color:rgb(0,255,195);}
+    .text#w{color: white}
     .readMoreWrapper{display: none}
     .quote{font-size:5.5vw; line-height: 6vw} 
     .outLine{width: 100%; margin: 0px; outline: 0;} 
