@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="underscore-master/underscore-min.js"></script>
-        
+        <script type="text/javascript" src="malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></script>
+        <script type="text/javascript" src="jQuery.scrollSpeed-master/jQuery.scrollSpeed.js"></script>
+        <link rel="stylesheet" href="malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         
     </head>
@@ -248,7 +250,7 @@ url('supervision_09.jpg')"></div>
     </div>
              
                 
-        <div class="tldrBox tldrEmpty" style="height:10%"></div>     
+        <div class="tldrBox tldrEmpty" style="height:10vh"></div>     
         
             
         <div class="tldrWrapper" id="w2">
@@ -293,13 +295,13 @@ www.thebuildersassociation.org<br>
             var prevScroll=0;
             var position = new Array();
             var snapNum = $(window).height()*0.06;
-            var throttleTime = 10;
+            var throttleTime = 12;
             var counter = 1;
             
             $(document).ready(function()
             {
                init();
-                setInterval(loopTransition,500);
+                
             });
             
             $(".readMoreWrapper").click(function()
@@ -362,6 +364,12 @@ www.thebuildersassociation.org<br>
             function init()
             {
                // loopSetup();
+            
+                //$("body").mCustomScrollbar();
+                setInterval(loopTransition,500);
+                setInterval(scrollDetect,5);
+                //jQuery.scrollSpeed(10,10);
+                
                 if($(window).width()>=770){
                  var i;
                 childNum = $(".box").length;
@@ -421,6 +429,7 @@ www.thebuildersassociation.org<br>
                     
             });
             
+            
             function tldrSize()
             {
                 var twWidth = parseInt($(".tldrWrapper").height()*1.294);
@@ -431,6 +440,7 @@ www.thebuildersassociation.org<br>
                 $(".tldrWrapper").css("margin-left",marginL);
                 console.log($(".tldrWrapper").outerHeight()+" "+$(window).width()+" "+twWidth+" "+marginL);
             }
+            
             
             function cropMarks()
             {
@@ -507,26 +517,16 @@ www.thebuildersassociation.org<br>
                 }
             }
             
-            
-            var thisHappens = _.throttle(function(){
-                if($(window).width()>=770){
-                
-                        var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
-                        var containerHeight = $(window).height();
-                       // console.log(y);
-                        //console.log(currentNum+" "+y);
+            function scrollDetect()
+            {
+                 var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
+                var containerHeight = $(window).height();
+               // console.log(y);
+                //console.log(currentNum+" "+y);
 
-                        if(currentNum >= childNum)
-                            currentNum--;
-                
-                        var opacity = 0.7*(1-(y/containerHeight));
-                        if(opacity > 0.7)
-                            opacity = 0.7;
-                      //  console.log(opacity+".box#n"+currentNum+" .veil");
-                
-                        $("#n"+currentNum+" .veil").css("opacity",opacity);
-
-                        if(y<=snapNum)
+                if(currentNum >= childNum)
+                    currentNum--;
+                if(y<=snapNum)
                         {
                             currentNum++;
                             $(".box#n"+currentNum).css({"position":"fixed","top":"0px"});
@@ -536,6 +536,23 @@ www.thebuildersassociation.org<br>
                             $(".box#n"+currentNum).css({"position":"absolute","top":position[currentNum]+"px"});
                             currentNum--;
                         }
+            }
+                
+            
+            
+            var thisHappens = _.throttle(function(){
+                if($(window).width()>=770){
+                
+                        
+                        var containerHeight = $(window).height();
+                        var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
+                
+                        var opacity = 0.7*(1-(y/containerHeight));
+                        if(opacity > 0.7)
+                            opacity = 0.7;
+                
+                        $("#n"+currentNum+" .veil").css("opacity",opacity);
+
                 
                 }
                 
