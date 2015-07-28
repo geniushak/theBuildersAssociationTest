@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="underscore-master/underscore-min.js"></script>
-        <script type="text/javascript" src="jquery.scrollTo-master/jquery.scrollTo.js"></script>
+        <script type="text/javascript" src="malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></script>
+        <script type="text/javascript" src="jQuery.scrollSpeed-master/jQuery.scrollSpeed.js"></script>
+        <link rel="stylesheet" href="malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         
     </head>
@@ -14,8 +16,6 @@
             <div style="background:url('JL_2010_6.jpg'), url('workshop_3_web.jpg'), url('house7.jpg'), url('imperial_03.jpg'), url('master_01.jpg'), url('continuous-dec_01.jpg'), url('alladeen_21.jpg'), 
 url('supervision_09.jpg')"></div>      
             
-        
-            <div id="scrollPurpose" style="width:100%; top:0px; position:absolute"></div>
 <!--            <div class="box" id="n1" style="background-image:url('JL_2010_6.jpg'); background-position:center; top:0px; position:fixed"></div>-->
             <div class="box" id="n1" style="overflow:hidden; position:fixed;">
                 <video preload="auto" loop="loop" autoplay="autoplay" muted><source src="jet_lag_clip_for_loop.mp4" type="video/mp4"><source src="jet_lag_clip_for_loop.ogv" type="video/ogv"><source src="jet_lag_clip_for_loop.ogg" type="video/ogg"></video> 
@@ -220,7 +220,7 @@ url('supervision_09.jpg')"></div>
             
             <div class="box" id="n49" style="background-color:transparent; height:10%"></div>
             
-            
+            <div id="scrollPurpose" style="width:100%; top:0px; position:absolute"></div>
         
         
         
@@ -322,60 +322,37 @@ www.thebuildersassociation.org<br>
             var childNum;
             var prevScroll=0;
             var position = new Array();
-            var snapNum = $(window).height()*0.03;
-            var throttleTime = 0;
+            var snapNum = $(window).height()*0.2;
+            var throttleTime = 12;
             var counter = 1;
-            
-            
             
             $(document).ready(function()
             {
                init();
-                $(window).scrollTo("0px");
-                 setInterval(loopTransition,500);
-            });
-            
-            $(".box").click(function()
-            {
-                
-                var a = $(window).scrollTop();
-                var b = $(this).position().top;
-            
-                if(b != 0)
-                {
-                    $(window).scrollTo((a+b)+"px",500);
-                }
-                else
-                {
-                    a += $(window).height()*2
-                    $(window).scrollTo(a+"px",500);
-                }
                 
             });
             
             $(".readMoreWrapper").click(function()
             {
                 $("body").css("overflow","hidden");
+                // console.log("!!!!KJBPFOWEIHFP*");
                 $(".tldrBigWrapper").css("display","block");
+                //tldrSize();
+                //cropMarks();
             });
-            
-            
             
             $("#close").click(function()
             {
-               $("body").css("overflow","scroll");
+               
+                $("body").css("overflow","scroll");
                 $(".tldrBigWrapper").css("display","none");
             });
-            
-            
             
             $("#print").click(function()
             {
                 window.print();
             });
-                
-            
-            
+                                        
             $(".readMoreWrapper").hover(function(){
                 $(".readMoreTextBox").css("display","block");
                // console.log("1");
@@ -384,55 +361,70 @@ www.thebuildersassociation.org<br>
               //  console.log("0");
             });
             
-            
-            
             $(document).mousemove(function(event){
                 var x= event.pageX-200;
                 var y= event.pageY-$(window).scrollTop();
                 $(".readMoreTextBox").css({"top":y+"px","left":x+"px"});
             });
             
-           
+           /* function loopSetup() 
+            {
+                $("#readMoreText").toggleClass("s1");
+                $("#readMoreText").toggleClass("s2");
+                
+                $("#readMoreText").on('transitionend webkitTransitionEnd oTransitionEnd', loopTransition());
+            }*/
             
             function loopTransition()
             {
+               // console.log("!!!!!"+counter);
+              //   console.log("?????"+$("#readMoreText").attr('class'));
                 $("#readMoreText").toggleClass("s"+counter.toString());
                 counter++;
                 if(counter > 2)
                     counter = 1;
                 $("#readMoreText").toggleClass("s"+counter.toString());
-             }
+             //   console.log("?????"+$("#readMoreText").attr('class'));
+                
+            }
             
             
             function init()
             {
-                if($(window).width()>=770)
+               // loopSetup();
+            
+                //$("body").mCustomScrollbar();
+                setInterval(loopTransition,500);
+                
+                setInterval(scrollDetect,5);
+                //jQuery.scrollSpeed(10,10);
+                
+                if($(window).width()>=770){
+                 var i;
+                childNum = $(".box").length;
+                var docHeight = $(".box#n1").height();
+              //  console.log(childNum);
+                position[1] = 0;
+                $(".box#n1").css("top","0px");
+                for(i=2; i<=childNum; i++)
                 {
-                    var i;
-                    childNum = $(".box").length;
                     
-                    
-                    var docHeight = $(".box#n1").height();
-
-                    
-                    $(".box#n1").css("top","0px");
-                    docHeight += $(".box#n1").height();
-                    
-                    
-                    for(i=2; i<=childNum; i++)
-                    {
-                        var divHeight = $(window).height();
-                        $(".box#n"+i).css({"top":divHeight+"px","position":"fixed"});
-                        docHeight += $(".box#n"+i).height();
-                    }
-                    
-
-                    docHeight += 100;
-                    $("#scrollPurpose").css("height",docHeight+"px");
-
-                    videoSize();
-                    imageSize();
-                   
+                    var divHeight = $(".box#n"+(i-1)).outerHeight(true);
+                    var y = position[i-1];
+                    $(".box#n"+i).css("top",y+divHeight+"px");
+                   position[i] = y+divHeight;
+                    docHeight += $(".box#n"+i).height();
+                 //   console.log(position[i]);
+                }
+                $("#scrollPurpose").css("height",docHeight+"px");
+              //  $("#forScroll").css({"width":"100%","height":docLength+"px","background-color":"magenta"});
+                if($(window).width() <770)
+                    throttleTime = 0;
+                
+                //videoSize();
+                //imageSize();
+                //tldrSize();
+                //cropMarks();
                 }
             }
             
@@ -444,22 +436,20 @@ www.thebuildersassociation.org<br>
                 
                 if($(window).width() >=770)
                 {
-                    //var i;
-                    //console.log($(window).scrollTop());
-                    /*for(i=1;i<=currentNum-1; i++)
-                         $(".box#n"+i).css({"position":"fixed","top":"0px"});*/
-                    $(".veil").css("opacity","0"); 
-                    $(window).scrollTo("0px");
-                    videoSize();
-                    imageSize();
-                    
+                    var i;
+                    for(i=1;i<=currentNum; i++)
+                         $(".box#n"+i).css({"position":"fixed","top":"0px"});
+                    throttleTime = 10;
+                    //videoSize();
+                    //imageSize();
                 }
-                
                 else
                 {
                     var i;
+                    console.log("!NMVEKSLFJSB!!!!!");
                     for(i=1;i<=childNum; i++)
-                        $(".box#n"+i).css({"position":"reletive","top":"auto"});
+                    $(".box#n"+i).css({"position":"reletive","top":"auto"});
+                    throttleTime = 0;
                 }
                 
                 
@@ -469,7 +459,61 @@ www.thebuildersassociation.org<br>
             });
             
             
+            function tldrSize()
+            {
+                var twWidth = parseInt($(".tldrWrapper").height()*1.294);
+                $(".tldrWrapper").css("width",twWidth);
+                
+                twWidth = $(".tldrWrapper").outerWidth();
+                var marginL = parseInt(($(window).width() - twWidth)/2);
+                $(".tldrWrapper").css("margin-left",marginL);
+                console.log($(".tldrWrapper").outerHeight()+" "+$(window).width()+" "+twWidth+" "+marginL);
+            }
             
+            
+            function cropMarks()
+            {
+                var i;
+                for(i=1; i<=2; i++)
+                {
+                    var x = $(".tldrWrapper#w"+i).offset().left;
+                    var y = $(".tldrWrapper#w"+i).position().top+$(".tldrBigWrapper").scrollTop();
+                    console.log("??????????"+y);
+                    y += parseInt($(".tldrWrapper#w"+i).css("margin-top").replace("px",""));
+                    var w = $(".tldrWrapper#w"+i).outerWidth();
+                    var h = $(".tldrWrapper#w"+i).outerHeight();
+                    var n = (i-1)*4;
+                    console.log("!!!!!!!!!!!!!!!!!!!!"+$(".tldrWrapper#w"+i).css("margin-top").replace("px",""));
+                    
+                    $(".cropMarks#c"+(1+n)).css({"width":"25px",
+                                                 "height":(h-10)+"px",
+                                                 "left":(x-35)+"px",
+                                                 "top":y+"px",
+                                                 "border-top": "5px solid black",
+                                                 "border-bottom": "5px solid black"});
+                    
+                     $(".cropMarks#c"+(2+n)).css({"width":(w-10)+"px",
+                                                 "height":"25px",
+                                                 "left":x+"px",
+                                                 "top":(y-35)+"px",
+                                                 "border-left": "5px solid black",
+                                                 "border-right": "5px solid black"});
+                    
+                    $(".cropMarks#c"+(3+n)).css({"width":"25px",
+                                                 "height":(h-10)+"px",
+                                                 "left":(x+w+10)+"px",
+                                                 "top":y+"px",
+                                                 "border-top": "5px solid black",
+                                                 "border-bottom": "5px solid black"});
+                    
+                     $(".cropMarks#c"+(4+n)).css({"width":(w-10)+"px",
+                                                 "height":"25px",
+                                                 "left":x+"px",
+                                                 "top":(y+h+10)+"px",
+                                                 "border-left": "5px solid black",
+                                                 "border-right": "5px solid black"});
+                }
+            }
             
             function imageSize()
             {
@@ -502,54 +546,48 @@ www.thebuildersassociation.org<br>
                 }
             }
             
+            function scrollDetect()
+            {
+                 var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
+                var containerHeight = $(window).height();
+               // console.log(y);
+                //console.log(currentNum+" "+y);
+
+                if(currentNum >= childNum)
+                    currentNum--;
+                if(y<=snapNum)
+                        {
+                            currentNum++;
+                            $(".box#n"+currentNum).css({"position":"fixed","top":"0px","-webkit-transition":"all 0.8s"});
+                        }
+                        else if(y>=containerHeight+snapNum)
+                        {
+                            $(".box#n"+currentNum).css({"position":"absolute","top":position[currentNum]+"px","-webkit-transition":"all 0s"});
+                            currentNum--;
+                        }
+            }
                 
-            var currentNum =2;
-            var pastScroll=0;
-            var prevNum = 2;
+            
+            
             var thisHappens = _.throttle(function(){
                 if($(window).width()>=770){
-                        
+                
                         
                         var containerHeight = $(window).height();
-                        var y = $(window).scrollTop()-pastScroll;
-                        currentNum = parseInt($(window).scrollTop()/containerHeight)+2;
-            
-                      //  console.log("!!!!!!!!!!!!"+currentNum+" "+y+" "+$(window).scrollTop()+" "+pastScroll);
-//                        console.log(currentNum);
-
-                              // currentNum++;
-                       
-                        
-                        if(prevNum != currentNum)
-                        {
-                            
-                            pastScroll = $(window).scrollTop();
-                            $(".box#n"+(currentNum-1)).css("top","0px");
-                            if(prevNum > currentNum)
-                            {
-                                pastScroll -= $(window).height();
-                                $(".box#n"+prevNum).css("top",containerHeight+"px");
-                              //  alert("!!");
-                            }
-                            prevNum = currentNum;
-                        }
-                        
-                        y = $(window).scrollTop()-pastScroll;
-                         $(".box#n"+currentNum).css("top",(containerHeight-y)+"px");
-    
-                    
-                        var opacity = 0.7*(y/containerHeight);
+                        var y = $(".box#n"+(currentNum+1)).position().top-$(window).scrollTop();
+                
+                        var opacity = 0.7*(1-(y/containerHeight));
                         if(opacity > 0.7)
                             opacity = 0.7;
                 
-                        $("#n"+(currentNum-1)+" .veil").css("opacity",opacity);
+                        $("#n"+currentNum+" .veil").css("opacity",opacity);
 
                 
                 }
                 
             },throttleTime);
             
-            
+            var currentNum =1;
   
             $(window).scroll(thisHappens);
             

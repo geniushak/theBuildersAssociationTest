@@ -2,16 +2,20 @@
     
 html {width: 100%; height: 100%; padding: 0px; margin: 0px;}
 body {width: 100%; height: 100%; padding: 0px; margin: 0px;overflow: scroll}
-video {height:100%; width: auto;}
-
+video { width: auto;}
 
 .box {
     width: 100%; 
-    height: 100%; 
+    height: 100%;
     background-color:transparent; 
     position: absolute;
     overflow: hidden;
 }
+
+.box:hover{
+    cursor: pointer;
+}
+    
 .veil {
     background-color: black; 
     opacity: 0; 
