@@ -427,7 +427,7 @@ www.thebuildersassociation.org<br>
                     }
                     
 
-                    docHeight += 100;
+                    docHeight += 500;
                     $("#scrollPurpose").css("height",docHeight+"px");
 
                     videoSize();
@@ -506,6 +506,8 @@ www.thebuildersassociation.org<br>
             var currentNum =2;
             var pastScroll=0;
             var prevNum = 2;
+            var prevStopNum = 2;
+            var timeoutId;
             var thisHappens = _.throttle(function(){
                 if($(window).width()>=770){
                         
@@ -515,8 +517,8 @@ www.thebuildersassociation.org<br>
                         currentNum = parseInt($(window).scrollTop()/containerHeight)+2;
             
                       //  console.log("!!!!!!!!!!!!"+currentNum+" "+y+" "+$(window).scrollTop()+" "+pastScroll);
-//                        console.log(currentNum);
-
+                        
+                        
                               // currentNum++;
                        
                         
@@ -543,7 +545,42 @@ www.thebuildersassociation.org<br>
                             opacity = 0.7;
                 
                         $("#n"+(currentNum-1)+" .veil").css("opacity",opacity);
-
+                    
+                    
+                        if(timeoutId ){clearTimeout(timeoutId );}
+                    
+                        timeoutId = setTimeout(function()
+                        {
+                           //alert("!!!");
+                            var i;
+                            if(currentNum > prevStopNum)
+                            {
+                                for(i = 1; i<currentNum-1; i++)
+                                {
+                                    $(".box#n"+i).css("top","0px");
+                                    $("#n"+i+" .veil").css("opacity","0.7");
+                                }
+                            }
+                            else if(currentNum < prevStopNum)
+                            {
+                                
+                                for(i = currentNum+1; i<=childNum; i++)
+                                {
+                                    $(".box#n"+i).css("top",containerHeight+"px");
+                                    $("#n"+i+" .veil").css("opacity","0");
+                                }
+                                if(currentNum == 2)
+                                {
+                                    //alert("!!!!");
+                                    //$(window).scrollTo("0px");
+                                    $("#n1 .veil").css("opacity","0");
+                                    console.log(currentNum+" "+$(window).scrollTop());
+                                }
+                            }
+                            prevStopNum = currentNum;
+                            
+                        }, 20);
+                        
                 
                 }
                 
