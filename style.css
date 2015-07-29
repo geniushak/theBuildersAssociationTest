@@ -210,7 +210,8 @@ video { width: auto;}
     
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 770px) {
+    
     img, video{display: none}
     .title {height: 10px; top:40%;}
     .title2 {font-size:11.6vw; line-height: 11vw; top:36%; width: 90% !important; margin-left: 5% !important; position: relative; text-align: left}
@@ -238,6 +239,39 @@ video { width: auto;}
     .outline{width: 100%; margin: 0px; outline: 0;} 
     #scrollPurpose{display: none}
 }
+
+@media only screen and (max-device-width: 1024px) 
+                and (orientation: landscape) {
+    
+    img, video{display: none}
+    .title {height: 10px; top:40%;}
+    .title2 {font-size:11.6vw; line-height: 11vw; top:36%; width: 90% !important; margin-left: 5% !important; position: relative; text-align: left}
+    .circleOutline{width: 90%; left: 5%; margin: 0; border-radius:0; height: auto; top:auto;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    -o-border-radius:0;
+    -ms-border-radius:0; border: 0px; position: relative}
+    .halfPageTitle{font-size:10vw; line-height: 10.5vw; margin-top: 350px !important; position: relative; text-align: left}
+    .box {height: auto; padding-bottom: 20px; background-color: black; position: relative; top:auto; cursor: inherit !important}
+    #n1,#n5,#n9,#n13,#n21,#n25,#n33,#n37,#n45 {display: none}
+    #n3{height: 100% !important}
+    #n7{height: 100% !important}
+    #n11{height: 100% !important}
+    #n3 .title2{text-align: center}
+    #n11 .title2{text-align: center}
+    .column {height:auto;width: 100%; background-color: black !important}
+    .text {font-size:7vw}
+    .text#y{color:rgb(255,255,0);}
+    .text#r{color:rgb(255,63,0);}
+    .text#g{color:rgb(0,255,195);}
+    .text#w{color: white; font-size: 5vw; margin-bottom: 150px}
+    .readMoreWrapper{display: none}
+    .quote{font-size:7vw !important; line-height:inherit !important; text-align: left; margin-top: 20px} 
+    .outline{width: 100%; margin: 0px; outline: 0;} 
+    #scrollPurpose{display: none}
+}
+
+
 
 @font-face {
     font-family: "dia";
@@ -283,7 +317,7 @@ video { width: auto;}
     .tldrEmpty{display: none}
     video {display: none}
     img {display: none}
-    #scrollPurpose{display: none}
+    #scrollPurpose{display: none !important}
 }
 
 

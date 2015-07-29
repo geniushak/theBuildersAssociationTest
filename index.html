@@ -6,7 +6,7 @@
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="underscore-master/underscore-min.js"></script>
         <script type="text/javascript" src="jquery.scrollTo-master/jquery.scrollTo.js"></script>
-        <script type="text/javascript" src="detectmobilebrowser.js"></script>
+        <script type="text/javascript" src="hgoebl-mobile-detect.js-1a3e09a/mobile-detect.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         
     </head>
@@ -333,7 +333,7 @@ www.thebuildersassociation.org<br>
             var snapNum = $(window).height()*0.03;
             var throttleTime = 0;
             var counter = 1;
-            
+            var md = new MobileDetect(window.navigator.userAgent);
             
             
             $(document).ready(function()
@@ -345,7 +345,7 @@ www.thebuildersassociation.org<br>
             
             $(".box").click(function()
             {
-                if($(window).width() >= 1024)
+                if($(window).width() >= 770  && md.phone() == null && md.tablet() == null)
                 {
                 var a = $(window).scrollTop();
                 var b = $(this).position().top;
@@ -434,7 +434,11 @@ www.thebuildersassociation.org<br>
             function init()
             {
                 childNum = $(".box").length;
-                if($(window).width()>=1024)
+               
+               /* if(md.phone() == null && md.tablet() == null)
+                     alert("!!!!!!");*/
+                
+                if($(window).width()>=770 && md.phone() == null && md.tablet() == null)
                 {
                     var i;
                     
@@ -479,7 +483,7 @@ www.thebuildersassociation.org<br>
                 snapNum = $(window).height()*0.03;
                 init();
                 
-                if($(window).width() >=1024)
+                if($(window).width() >=770 && md.phone() == null && md.tablet() == null)
                 {
                     //var i;
                     //console.log($(window).scrollTop());
@@ -564,7 +568,7 @@ www.thebuildersassociation.org<br>
             var prevStopNum = 2;
             var timeoutId;
             var thisHappens = _.throttle(function(){
-                if($(window).width()>=1024){
+                if($(window).width()>=770 && md.phone() == null && md.tablet() == null){
                         
                         
                         var containerHeight = $(window).height();
