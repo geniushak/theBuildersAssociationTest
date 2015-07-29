@@ -210,7 +210,7 @@ video { width: auto;}
     
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1024px) {
     img, video{display: none}
     .title {height: 10px; top:40%;}
     .title2 {font-size:11.6vw; line-height: 11vw; top:36%; width: 90% !important; margin-left: 5% !important; position: relative; text-align: left}
