@@ -142,7 +142,7 @@ url('supervision_09.jpg')"></div>
             
             <div class="box" id="n35" >
                 <div class="outline" style="outline-color:rgb(255,61,33)"></div>
-               <div class="title2 quote" style="color:rgb(255,63,0);font-size:5.5vw; width:80%; margin-left:10%;top:30%;line-height:6vw">&ldquo;The workshop offered excellent insight into their process and the way<br>that technology informs and shapes the concept.&rdquo;</div>
+               <div class="title2 quote" style="color:rgb(255,63,0);font-size:5.5vw; width:80%; margin-left:10%;top:27%;line-height:6vw">&ldquo;The workshop offered excellent insight into their process and the way<br>that technology informs and shapes the concept.&rdquo;</div>
             </div>
         
             <div class="box" id="n36" style="height:100%"></div>
@@ -195,7 +195,7 @@ url('supervision_09.jpg')"></div>
         
             <div class="box" id="n47" >
                 <div class="outline" style="outline-color:rgb(0,255,195)"></div>
-               <div class="title2 quote" style="color:rgb(0,255,195);font-size:5.5vw; width:86%; margin-left:7%;top:28%;line-height:6vw">&ldquo;I really took away the strong community spirit of<br>the ensemble and the shared values of creative play to create great work that matters.&rdquo;</div>
+               <div class="title2 quote" style="color:rgb(0,255,195);font-size:5.5vw; width:86%; margin-left:7%;top:27%;line-height:6vw">&ldquo;I really took away the strong community spirit of<br>the ensemble and the shared values of creative play to create great work that matters.&rdquo;</div>
             </div>
         
             <div class="box" id="n48" style="height:100%"></div>
@@ -341,7 +341,7 @@ Brooklyn, NY 11215<br>
             $(document).ready(function()
             {
                init();
-                $(window).scrollTo("0px");
+                
                  setInterval(loopTransition,200);
             });
             
@@ -350,15 +350,19 @@ Brooklyn, NY 11215<br>
                 if($(window).width() >= 770  && md.phone() == null && md.tablet() == null)
                 {
                 var a = $(window).scrollTop();
-                var b = $(this).position().top;
+                var b = $(".box#n"+currentNum).position().top;
             
                 if(b != 0)
                 {
+                    if(currentNum%2==0)
+                        a += $(window).height();
                     $(window).scrollTo((a+b)+"px",500);
                 }
                 else
                 {
-                    a += $(window).height()*2
+                    a += $(window).height();
+                    if(currentNum%2!=0)
+                        a += $(window).height()*2;
                     $(window).scrollTo(a+"px",500);
                 }
                 }
@@ -383,7 +387,7 @@ Brooklyn, NY 11215<br>
                     {
                         var t2 = lPosition[i]-((i-1)*25);
                         $(".tldrBigWrapper").scrollTo(t2+"px",500);
-                        console.log(t2);
+    
                         break;
                     }
             });
@@ -407,10 +411,10 @@ Brooklyn, NY 11215<br>
             
             $(".readMoreWrapper").hover(function(){
                 $(".readMoreTextBox").css("display","block");
-               // console.log("1");
+               
             },function(){
                 $(".readMoreTextBox").css("display","none");
-              //  console.log("0");
+              
             });
             
             
@@ -475,10 +479,11 @@ Brooklyn, NY 11215<br>
                     for(i=2; i<=childNum; i+=2)
                     {
                         $(".box#n"+i).css("display","none");
-                        console.log(i);
+                       
                     }
                     $("#scrollPurpose").css("display","none");
                 }
+                $(window).scrollTo("0px");
             }
             
             
@@ -489,10 +494,7 @@ Brooklyn, NY 11215<br>
                 
                 if($(window).width() >=770 && md.phone() == null && md.tablet() == null)
                 {
-                    //var i;
-                    //console.log($(window).scrollTop());
-                    /*for(i=1;i<=currentNum-1; i++)
-                         $(".box#n"+i).css({"position":"fixed","top":"0px"});*/
+                    
                     $(".veil").css("opacity","0"); 
                     $(window).scrollTo("0px");
                     videoSize();
@@ -527,9 +529,7 @@ Brooklyn, NY 11215<br>
                 for(i=1;i<=5; i++)
                 {
                     lPosition[i] = parseInt($(".tldrTitle#t"+i).position().top-($(window).height()*0.05));
-                    console.log(lPosition[i]);
                 }
-                console.log("!!!!!!!!!!!!!!!!!!!!!");
                 lPosition[0] = 0;
                 lPosition[6] = 9999999;
             }
@@ -577,30 +577,25 @@ Brooklyn, NY 11215<br>
                         
                         
                         var containerHeight = $(window).height();
-                        var y = $(window).scrollTop()-pastScroll;
+                        var y = $(window).scrollTop()%containerHeight;
+                        //var y = $(window).scrollTop()-pastScroll;
                         currentNum = parseInt($(window).scrollTop()/containerHeight)+2;
             
-                      //  console.log("!!!!!!!!!!!!"+currentNum+" "+y+" "+$(window).scrollTop()+" "+pastScroll);
-                        
-                        
-                              // currentNum++;
-                       
-                        
-                        if(prevNum != currentNum)
+                       if(prevNum != currentNum)
                         {
                             
-                            pastScroll = $(window).scrollTop();
+                          //  pastScroll = $(window).scrollTop();
                             $(".box#n"+(currentNum-1)).css("top","0px");
                             if(prevNum > currentNum)
                             {
-                                pastScroll -= $(window).height();
+                         //       pastScroll -= $(window).height();
                                 $(".box#n"+prevNum).css("top",containerHeight+"px");
                               //  alert("!!");
                             }
                             prevNum = currentNum;
                         }
                         
-                        y = $(window).scrollTop()-pastScroll;
+                      //  y = $(window).scrollTop()-pastScroll;
                          $(".box#n"+currentNum).css("top",(containerHeight-y)+"px");
     
                     
@@ -642,7 +637,6 @@ Brooklyn, NY 11215<br>
                                     //alert("!!!!");
                                     //$(window).scrollTo("0px");
                                     $("#n1 .veil").css("opacity","0");
-                                    console.log(currentNum+" "+$(window).scrollTop());
                                 }
                             }
                             prevStopNum = currentNum;
