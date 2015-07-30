@@ -505,7 +505,8 @@ Brooklyn, NY 11215<br>
                 {
                     var i;
                     for(i=2;i<=childNum; i++)
-                        $(".box#n"+i).css({"position":"relative","top":"auto"});
+                        if(i!=11)
+                            $(".box#n"+i).css({"position":"relative","top":"auto"});
                     
                     for(i=2; i<=50; i+=2)
                         $(".box#n"+i).css("display","none");
