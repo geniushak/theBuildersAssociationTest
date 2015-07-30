@@ -3,7 +3,8 @@
 html {width: 100%; height: 100%; padding: 0px; margin: 0px;}
 body {width: 100%; height: 100%; padding: 0px; margin: 0px;overflow: scroll}
 video { width: auto;}
-
+a {color:black}
+    
 .box {
     width: 100%; 
     height: 100%;
@@ -95,6 +96,16 @@ video { width: auto;}
 .box #n1 {
     position: fixed;
 }
+    
+.arrow {
+    position: fixed;
+    font-family: "modern pictograms";
+    font-weight: "800";
+    text-align: center;
+    width: 100%;
+    bottom: 15px;
+    font-size: 7vw;
+}
 
 .readMoreTextBox{
     position:fixed; 
@@ -181,6 +192,7 @@ video { width: auto;}
 .tldrNav{
     width:20%;
     position: fixed;
+    -webkit-transform:translateZ(0);
     left: 3%;
     top: 5%;
 }
@@ -224,10 +236,9 @@ video { width: auto;}
     .box {height: auto; padding-bottom: 20px; background-color: black; position: relative; top:auto; cursor: inherit !important}
     #n1,#n5,#n9,#n13,#n21,#n25,#n33,#n37,#n45 {display: none}
     #n3{height: 100% !important}
-    #n7{height: 100% !important}
-    #n11{height: 100% !important}
+    #n11{position: fixed; top:10px; background-color: transparent; z-index: 999999}
     #n3 .title2{text-align: center}
-    #n11 .title2{text-align: center}
+    #n11 .title2{text-align: center; font-size:4vw}
     .column {height:auto;width: 100%; background-color: black !important}
     .text {font-size:7vw}
     .text#y{color:rgb(255,255,0);}
@@ -238,6 +249,9 @@ video { width: auto;}
     .quote{font-size:7vw !important; line-height:inherit !important; text-align: left; margin-top: 20px} 
     .outline{width: 100%; margin: 0px; outline: 0;} 
     #scrollPurpose{display: none}
+    .tldrNavList{display: none}
+    #dArrow{display: none}
+    a {color:white}
 }
 
 @media only screen and (max-device-width: 1024px) 
@@ -255,10 +269,9 @@ video { width: auto;}
     .box {height: auto; padding-bottom: 20px; background-color: black; position: relative; top:auto; cursor: inherit !important}
     #n1,#n5,#n9,#n13,#n21,#n25,#n33,#n37,#n45 {display: none}
     #n3{height: 100% !important}
-    #n7{height: 100% !important}
-    #n11{height: 100% !important}
+    #n11{position: fixed; top:10px; background-color: transparent; z-index: 999999}
     #n3 .title2{text-align: center}
-    #n11 .title2{text-align: center}
+    #n11 .title2{text-align: center; font-size:4vw}
     .column {height:auto;width: 100%; background-color: black !important}
     .text {font-size:7vw}
     .text#y{color:rgb(255,255,0);}
@@ -269,6 +282,9 @@ video { width: auto;}
     .quote{font-size:7vw !important; line-height:inherit !important; text-align: left; margin-top: 20px} 
     .outline{width: 100%; margin: 0px; outline: 0;} 
     #scrollPurpose{display: none}
+    .tldrNavList{display: none}
+    #dArrow{display: none}
+    a {color:white}
 }
 
 

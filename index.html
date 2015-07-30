@@ -211,9 +211,9 @@ url('supervision_09.jpg')"></div>
                         The Builders Association<br>
                         55 Washington Street #312D<br>
                         Brooklyn, NY 11215<br>
-                        www.thebuildersassociation.org<br>
+                        <a href="http://www.thebuildersassociation.org/">www.thebuildersassociation.org</a><br>
                         212-274-0446<br><br>
-                        For booking inquiries, contact <a href="erica@thebuildersassociation.org">erica@thebuildersassociation.org</a>
+                        For booking inquiries, contact <a href="mailto:erica@thebuildersassociation.org">erica@thebuildersassociation.org</a>
                     </div>
                 </div>
             </div>
@@ -225,9 +225,10 @@ url('supervision_09.jpg')"></div>
             
             
         
+<!--        <div class="arrow">[<a id="arrowT" style="font-family:dia;font-weight:900;font-size:5.5vw">SCROLL</a>[</div>-->
+            
+        <div id="dArrow" style="position:fixed; bottom:0px; left:48%; height:80px; width: 80px;background-image:url('dArrow.svg');background-size:contain; -webkit-transition:all 0.2s"></div>
         
-        
-       
         <div class="readMoreWrapper"> 
             <div class="readMore"><img src="Fonts_for_Builders/ModernPictogramsPro/align_left.svg" style="margin-top:-5px; margin-left:-2.5px; height:55px;"></div>
             <div class="readMoreTextBox"><div id="readMoreText" class="s1">Read More</div></div>
@@ -248,7 +249,7 @@ url('supervision_09.jpg')"></div>
         <div class="tldrWrapper" id="w1">
             
             <div class="tldrColumn" style="float:left">
-                <div class="tldrTitle" style="font-family:'dia'; padding-bottom:10px">21ST CENTURY STORYTELLING<br><br></div>
+                <div class="tldrTitle" style="font-family:'dia';">21ST CENTURY STORYTELLING<br><br></div>
                 <div class="tldrBox">Professional development workshops<br>in crossmedia performance<br><br><br><br></div>
                 <div class="tldrBox tldrEmpty"></div>
                 <div class="tldrBox tldrTitle" id="t1" style="float:none">About the Builders<br><br></div>
@@ -268,17 +269,17 @@ url('supervision_09.jpg')"></div>
                 <div class="tldrBox tldrEmpty"></div>
                 <div class="tldrBox tldrTitle" id="t3">Sample Workshops<br><br></div>
                 <div class="tldrBox">BEGINNER COURSE<br>This 1.5-day course introduces professional artists and media makers working in a variety of live performance disciplines to some of the basic theories and tools for integrating hybrid media elements into theatrical productions.<br><br> </div>
-                <div class="tldrBox">DAY ONE &mdash; This session begins with a brief history and conversation about the work of OBIE-award winning performance and media company The Builders Association, and introduces participating students to the company&rsquo;s unique real-time multimedia devising process by staging a brief &lsquo;open rehearsal&rsquo;.  Small groups then go through a series of exercises using media and collaborating on sketches which are used as a springboard for further group development and discussion. <br><br></div>
-                <div class="tldrBox">DAY TWO &mdash; Each group shows the work they have developed with hands-on participation from the Builders&rsquo; artists and discussion with the entire group.<br><br>
+                <div class="tldrBox">Day One &mdash; This session begins with a brief history and conversation about the work of OBIE-award winning performance and media company The Builders Association, and introduces participating students to the company&rsquo;s unique real-time multimedia devising process by staging a brief &lsquo;open rehearsal&rsquo;.  Small groups then go through a series of exercises using media and collaborating on sketches which are used as a springboard for further group development and discussion. <br><br></div>
+                <div class="tldrBox">Day Two &mdash; Each group shows the work they have developed with hands-on participation from the Builders&rsquo; artists and discussion with the entire group.<br><br>
             Each group shows the work they have developed with hands-on participation from the Builders&rsquo; artists and discussion with the entire group.<br><br>
                 </div>
                 <div class="tldrBox tldrEmpty"></div>
                 <div class="tldrBox">ADVANCED COURSE<br>
                 In this advanced workshop, more experienced practitioners and/or students from the Beginner course will deepen their understanding of various interactive media tools.<br><br>
                 </div>
-                <div class="tldrBox">DAY ONE &mdash; Following brief presentations of the participants&rsquo; work, we will examine a Builders production to unpack the idea of "mediaturgy" - not simply how to incorporate media, but the justifications of why this choice is made and its repercussions in a larger context of live performance. Through a series of discussions and group exercises, we will delineate ways in which deploying media influences content, and how disparate elements can be joined to create dramaturgically complex multimedia events.<br><br>
+                <div class="tldrBox">Day One &mdash; Following brief presentations of the participants&rsquo; work, we will examine a Builders production to unpack the idea of "mediaturgy" - not simply how to incorporate media, but the justifications of why this choice is made and its repercussions in a larger context of live performance. Through a series of discussions and group exercises, we will delineate ways in which deploying media influences content, and how disparate elements can be joined to create dramaturgically complex multimedia events.<br><br>
             </div>
-            <div class="tldrBox">DAY TWO &mdash; We will present and discuss various interactive media tools available to performance-makers such as Isadora, Max/Jitter, Watch Out and Ableton, and stage some basic uses of these tools. Participants will be challenged to work in short scenes with a variety of software, reflecting on the effects and possibilities of each variation.<br><br>
+            <div class="tldrBox">Day Two &mdash; We will present and discuss various interactive media tools available to performance-makers such as Isadora, Max/Jitter, Watch Out and Ableton, and stage some basic uses of these tools. Participants will be challenged to work in short scenes with a variety of software, reflecting on the effects and possibilities of each variation.<br><br>
             </div> 
         </div>
             
@@ -307,7 +308,8 @@ url('supervision_09.jpg')"></div>
                 <div class="tldrBox">The Builders Association<br>
 55 Washington Street #312D<br>
 Brooklyn, NY 11215<br>
-www.thebuildersassociation.org<br>
+                    <a href="http://www.thebuildersassociation.org/">www.thebuildersassociation.org</a><br>
+                    <a href="mailto:erica@thebuildersassociation.org">erica@thebuildersassociation.org</a><br>
 212-274-0446
 </div>
             </div>
@@ -340,7 +342,7 @@ www.thebuildersassociation.org<br>
             {
                init();
                 $(window).scrollTo("0px");
-                 setInterval(loopTransition,500);
+                 setInterval(loopTransition,200);
             });
             
             $(".box").click(function()
@@ -413,6 +415,7 @@ www.thebuildersassociation.org<br>
             
             
             
+            
             $(document).mousemove(function(event){
                 var x= event.pageX-200;
                 var y= event.pageY-$(window).scrollTop();
@@ -424,10 +427,11 @@ www.thebuildersassociation.org<br>
             function loopTransition()
             {
                 $("#readMoreText").toggleClass("s"+counter.toString());
+                var t = (-8*(counter-1))+5;
+                $("#dArrow").css("bottom",t+"px");
                 counter++;
                 if(counter > 2)
                     counter = 1;
-                $("#readMoreText").toggleClass("s"+counter.toString());
              }
             
             
@@ -604,6 +608,11 @@ www.thebuildersassociation.org<br>
                             opacity = 0.7;
                 
                         $("#n"+(currentNum-1)+" .veil").css("opacity",opacity);
+                    
+                        opacity = ($(window).height() - $(window).scrollTop())/$(window).height();
+                        if(opacity <0)
+                            opacity = 0;
+                        $("#dArrow").css("opacity",opacity);
                     
                     
                         if(timeoutId ){clearTimeout(timeoutId );}
